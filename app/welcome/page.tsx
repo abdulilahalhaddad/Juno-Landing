@@ -80,8 +80,8 @@ export default function WelcomePage() {
         </p>
 
         <p style={{ fontSize: 18, lineHeight: 1.6, color: MUTED, margin: '0 0 36px' }}>
-          Next, create your account and add your mum&rsquo;s details — her prescriptions and the
-          time of day that suits her. We&rsquo;ll ask for her go-ahead before Julie ever rings.
+          Next, add your mum&rsquo;s details — her prescriptions and the time of day that suits
+          her. We&rsquo;ll ask for her go-ahead before Julie ever rings.
         </p>
 
         <div
@@ -95,7 +95,7 @@ export default function WelcomePage() {
           }}
         >
           <a
-            href="/signup?checkout=early-bird"
+            href="/checkout/return"
             style={{
               background: ACCENT,
               color: PAPER,
@@ -106,7 +106,7 @@ export default function WelcomePage() {
               textDecoration: 'none',
             }}
           >
-            Create your account
+            Continue to your dashboard
           </a>
 
           <a href="/login" style={{ fontSize: 16, color: MUTED, textDecoration: 'underline' }}>

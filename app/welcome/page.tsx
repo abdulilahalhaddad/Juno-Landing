@@ -21,6 +21,11 @@ const serif = 'Newsreader, Georgia, serif';
  * page, so this page deliberately makes no API call — it needs no secret key
  * and cannot fail. It exists so the customer comes back to something branded
  * instead of being stranded on Stripe's default confirmation.
+ *
+ * The `?checkout=early-bird` marker on the sign-up link tells the dashboard the
+ * visitor arrived from checkout. It is a hint, not proof of payment — proving it
+ * would need a Stripe webhook — so the dashboard records it with its provenance
+ * rather than trusting it.
  */
 export default function WelcomePage() {
   return (
@@ -75,9 +80,8 @@ export default function WelcomePage() {
         </p>
 
         <p style={{ fontSize: 18, lineHeight: 1.6, color: MUTED, margin: '0 0 36px' }}>
-          We&rsquo;ll be in touch personally to set up the first call — we need your mum&rsquo;s
-          prescriptions and the time of day that suits her, and we&rsquo;ll ask for her go-ahead
-          before Julie ever rings.
+          Next, create your account and add your mum&rsquo;s details — her prescriptions and the
+          time of day that suits her. We&rsquo;ll ask for her go-ahead before Julie ever rings.
         </p>
 
         <div
@@ -87,12 +91,13 @@ export default function WelcomePage() {
             display: 'flex',
             gap: 14,
             flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <Link
-            href="/juno.html"
+          <a
+            href="/signup?checkout=early-bird"
             style={{
-              background: INK,
+              background: ACCENT,
               color: PAPER,
               padding: '14px 26px',
               borderRadius: 999,
@@ -100,6 +105,17 @@ export default function WelcomePage() {
               fontWeight: 500,
               textDecoration: 'none',
             }}
+          >
+            Create your account
+          </a>
+
+          <a href="/login" style={{ fontSize: 16, color: MUTED, textDecoration: 'underline' }}>
+            Log in
+          </a>
+
+          <Link
+            href="/juno.html"
+            style={{ fontSize: 16, color: MUTED, textDecoration: 'underline' }}
           >
             Back to the site
           </Link>
